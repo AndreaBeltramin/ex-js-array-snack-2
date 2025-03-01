@@ -51,14 +51,12 @@ const books = [
 // Salva in una variabile (fullPricedBook) il primo elemento di discountedBooks che ha un prezzo intero (senza centesimi).
 
 const availableBooks = books.filter((book) => book.available === true);
-console.log(availableBooks);
+console.log("availableBooks: ", availableBooks);
 
-const discountedBooks = availableBooks.map((book) => book.price);
-const price = discountedBooks.map((book) => book.slice(0, 2));
-console.log(discountedBooks);
-console.log(price);
-const discountedPrice = price.map(
-	(price) =>
-		(parseInt(price) - Math.round(parseInt(price) * 0.2)).toString() + " €"
+const discountedBooks = availableBooks.map(
+	(book) => parseInt(book.price) - parseInt(book.price) * 0.2
 );
-console.log(discountedPrice);
+console.log(discountedBooks);
+
+const fullPricedBook = discountedBooks.find((price) => Number.isInteger(price));
+console.log(fullPricedBook);
