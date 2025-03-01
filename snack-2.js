@@ -53,5 +53,12 @@ const books = [
 const availableBooks = books.filter((book) => book.available === true);
 console.log(availableBooks);
 
-const discountedBooks = availableBooks.map((book) => (book.price - 20) / 100);
+const discountedBooks = availableBooks.map((book) => book.price);
+const price = discountedBooks.map((book) => book.slice(0, 2));
 console.log(discountedBooks);
+console.log(price);
+const discountedPrice = price.map(
+	(price) =>
+		(parseInt(price) - Math.round(parseInt(price) * 0.2)).toString() + " €"
+);
+console.log(discountedPrice);
