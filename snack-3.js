@@ -54,7 +54,7 @@ const books = [
 const authors = books.map((book) => book.author);
 console.log(authors);
 
-const areAuthorsAdult = authors.age > 18;
+const areAuthorsAdults = authors.age > 18;
 
-// authors.sort((a, b) => a - b);
-// console.log(authors);
+authors.sort((a, b) => a.age - b.age);
+console.log(authors);
