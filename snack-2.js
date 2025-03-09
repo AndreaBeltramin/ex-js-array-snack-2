@@ -55,8 +55,8 @@ console.log("availableBooks: ", availableBooks);
 
 const discountedBooks = availableBooks.map((book) => {
 	const discountedPrice = (
-		parseInt(book.price) -
-		parseInt(book.price) * 0.2
+		parseFloat(book.price) -
+		parseFloat(book.price) * 0.2
 	).toFixed(2);
 	const finalDiscountedPrice = discountedPrice.toString() + "€";
 	return { ...book, price: finalDiscountedPrice };
@@ -64,7 +64,7 @@ const discountedBooks = availableBooks.map((book) => {
 console.log(discountedBooks);
 
 const fullPricedBook = discountedBooks.find((book) => {
-	const fullPrice = parseInt(book.price);
+	const fullPrice = parseFloat(book.price);
 	return Number.isInteger(fullPrice);
 });
 console.log(fullPricedBook);
