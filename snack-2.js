@@ -50,13 +50,21 @@ const books = [
 // Crea un array (discountedBooks) con gli availableBooks, ciascuno con il prezzo scontato del 20% (mantieni lo stesso formato e arrotonda al centesimo)
 // Salva in una variabile (fullPricedBook) il primo elemento di discountedBooks che ha un prezzo intero (senza centesimi).
 
-const availableBooks = books.filter((book) => book.available === true);
+const availableBooks = books.filter((book) => book.available);
 console.log("availableBooks: ", availableBooks);
 
-const discountedBooks = availableBooks.map(
-	(book) => parseInt(book.price) - parseInt(book.price) * 0.2
-);
+const discountedBooks = availableBooks.map((book) => {
+	const discountedPrice = (
+		parseInt(book.price) -
+		parseInt(book.price) * 0.2
+	).toFixed(2);
+	const finalDiscountedPrice = discountedPrice.toString() + "€";
+	return { ...book, price: finalDiscountedPrice };
+});
 console.log(discountedBooks);
 
-const fullPricedBook = discountedBooks.find((price) => Number.isInteger(price));
+const fullPricedBook = discountedBooks.find((book) => {
+	const fullPrice = parseInt(book.price);
+	return Number.isInteger(fullPrice);
+});
 console.log(fullPricedBook);

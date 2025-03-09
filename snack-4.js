@@ -51,9 +51,7 @@ const books = [
 // Stampa in console l’età media degli autori dei libri.
 
 const ages = books.map((book) => book.author.age);
-console.log(ages);
+console.log("età: ", ages);
 
-const ageSum = ages.reduce((acc, numero) => {
-	return acc + numero;
-}, 0);
-console.log(`L'età media degli autori è  ${ageSum / ages.length}`);
+const ageSum = ages.reduce((acc, numero) => acc + numero, 0);
+console.log(`L'età media degli autori è ${ageSum / ages.length} anni`);
